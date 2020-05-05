@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleof.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Productos - Laboratorio No. 3</title>
+</head>
+<form th:action="@{/validar}" method="post" th:object="${product}">
+	<label>Producto: </label>
+	<th>
+		<select th:field="*{id}">
+			<option th:each="p : ${producto}" th:value="${p.id}" th:text="${p.nombre}">
+			</option>
+		</select>
+		<br/>
+	</th>
+	<label>Cantidad: </label>
+	<input type="text" th:field="*{cantidad}" />
+	<br/>
+	
+	<button type="submit">Enviar</button>
+</form>
+</html>
